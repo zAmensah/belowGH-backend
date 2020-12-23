@@ -1,5 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 // initialize
 const app = express();
@@ -15,6 +16,7 @@ const authRoute = require('./routes/auth');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
+app.use(compression());
 
 app.use('/api', userRoute);
 app.use('/api', authRoute);
