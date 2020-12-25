@@ -11,6 +11,9 @@ require('./DBConfig');
 // routes
 const userRoute = require('./routes/user');
 const authRoute = require('./routes/auth');
+const mainRoute = require('./routers/main');
+const reviewRoute = require('./routers/review');
+const productRoute = require('./routers/product');
 
 // middleware
 app.use(express.json());
@@ -20,6 +23,9 @@ app.use(compression());
 
 app.use('/api', userRoute);
 app.use('/api', authRoute);
+app.use('/api', mainRoute);
+app.use('/api', reviewRoute);
+app.use('/api', productRoute);
 
 // socket config
 const server = require('http').createServer(app);
